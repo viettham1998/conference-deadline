@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh sách hội nghị</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📅 Hội nghị sắp diễn ra</h1>
+
+    <div class="controls">
+      <label for="rankFilter">Lọc theo Rank:</label>
+      <select id="rankFilter">
+        <option value="All">Tất cả</option>
+        <option value="A*">A*</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+      </select>
+
+      <label for="sortOrder">Sắp xếp:</label>
+      <select id="sortOrder">
+        <option value="asc">Ngày tăng dần</option>
+        <option value="desc">Ngày giảm dần</option>
+      </select>
+    </div>
+
+    <table id="upcomingTable">
+      <thead>
+        <tr>
+          <th>Tên</th>
+          <th>Rank</th>
+          <th>Thời gian</th>
+          <th>Địa điểm</th>
+          <th>⏳ Còn lại</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>📌 Các hội nghị đã qua deadline</h2>
+    <table id="pastTable">
+      <thead>
+        <tr>
+          <th>Tên</th>
+          <th>Rank</th>
+          <th>Thời gian</th>
+          <th>Địa điểm</th>
+          <th>⏳ Còn lại</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

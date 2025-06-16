@@ -14,7 +14,7 @@ function renderTables() {
   const upcomingBody = document.querySelector('#upcomingTable tbody');
   const pastBody = document.querySelector('#pastTable tbody');
 
-  // Clear previous
+  // Clear
   upcomingBody.innerHTML = '';
   pastBody.innerHTML = '';
 
@@ -31,7 +31,6 @@ function renderTables() {
     return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
   });
 
-  // Render
   const today = new Date();
 
   filtered.forEach(item => {
@@ -52,19 +51,10 @@ function renderTables() {
   });
 }
 
-fetch('conferences.txt')
-  .then(response => response.text())
-  .then(data => {
-    const lines = data.trim().split('\n');
-    allConferences = lines.map(line => {
-      const [name, rank, date, location] = line.split('|');
-      return { name, rank, date, location };
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  allConferences = conferences;
+  renderTables();
 
-    // Initial render
-    renderTables();
-
-    // Event listeners
-    document.getElementById('rankFilter').addEventListener('change', renderTables);
-    document.getElementById('sortOrder').addEventListener('change', renderTables);
-  });
+  document.getElementById('rankFilter').addEventListener('change', renderTables);
+  document.getElementById('sortOrder').addEventListener('change', renderTables);
+});
